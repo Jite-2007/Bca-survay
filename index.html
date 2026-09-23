@@ -6,51 +6,27 @@
 <title>BCA Student Voice | Student Survey</title>
 <meta name="description" content="BCA Student Voice — a professional student survey about academics, career goals and campus improvement.">
 <style>
-  /* Math Equation Clock */
-.math-clock {
-  width: 360px;
-  height: 360px;
-  margin: 35px auto;
+  /* Aesthetic Live Clock */
+.aesthetic-clock {
+  width: 150px;
+  height: 150px;
+  margin: 28px auto;
   position: relative;
-  color: #6d1018;
-  font-family: Georgia, serif;
-}
-
-.math-clock .eq {
-  position: absolute;
-  font-weight: 800;
-  font-size: 27px;
-  white-space: nowrap;
-}
-
-.eq-top { top: 0; left: 50%; transform: translateX(-50%); }
-.eq-tl { top: 55px; left: 5px; }
-.eq-tr { top: 55px; right: 0; }
-.eq-l { top: 135px; left: 15px; }
-.eq-r { top: 145px; right: 5px; }
-.eq-bl { bottom: 75px; left: 5px; }
-.eq-br { bottom: 75px; right: 0; }
-.eq-bottom { bottom: 0; left: 50%; transform: translateX(-50%); }
-
-.clock-machine {
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: #c28b32;
-  border: 5px solid #7d5b20;
-  box-shadow: 0 4px 15px #0004;
+  background: rgba(255,255,255,0.08);
+  border: 2px solid rgba(255,255,255,0.35);
+  box-shadow:
+    0 10px 35px rgba(0,0,0,0.25),
+    inset 0 0 25px rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
 }
 
-.clock-machine::before {
+.aesthetic-clock::before {
   content: "";
   position: absolute;
-  inset: 7px;
+  inset: 9px;
+  border: 1px solid rgba(255,255,255,0.18);
   border-radius: 50%;
-  border: 3px dashed #654915;
 }
 
 .clock-hand {
@@ -58,44 +34,89 @@
   left: 50%;
   bottom: 50%;
   transform-origin: 50% 100%;
-  background: #111;
-  border-radius: 5px;
-  z-index: 5;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  z-index: 2;
 }
 
 .clock-hour {
-  width: 7px;
+  width: 5px;
   height: 38px;
+  background: white;
 }
 
 .clock-minute {
-  width: 5px;
-  height: 55px;
+  width: 3px;
+  height: 52px;
+  background: white;
 }
 
 .clock-second {
   width: 2px;
-  height: 62px;
-  background: #d71920;
+  height: 58px;
+  background: #ff6b6b;
 }
 
-.clock-dot {
+.clock-center {
   position: absolute;
-  width: 13px;
-  height: 13px;
-  background: #111;
-  border: 3px solid #d19a36;
-  border-radius: 50%;
+  width: 10px;
+  height: 10px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  z-index: 10;
+  background: #ff6b6b;
+  border: 2px solid white;
+  border-radius: 50%;
+  z-index: 5;
 }
 
-@media (max-width: 500px) {
-  .math-clock {
-    transform: scale(.82);
-    margin: 5px auto -25px;
+.clock-number {
+  position: absolute;
+  color: rgba(255,255,255,0.85);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.clock-12 {
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.clock-3 {
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.clock-6 {
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.clock-9 {
+  left: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 600px) {
+  .aesthetic-clock {
+    width: 125px;
+    height: 125px;
+  }
+
+  .clock-hour {
+    height: 32px;
+  }
+
+  .clock-minute {
+    height: 43px;
+  }
+
+  .clock-second {
+    height: 49px;
   }
 }
 :root{--ink:#172033;--muted:#667085;--line:#e5eaf2;--bg:#f5f7fb;--primary:#2457e6;--primary2:#6d4aff;--card:#fff;--success:#067647}
@@ -155,41 +176,20 @@ footer{text-align:center;color:#7a8496;font-size:12px;padding:0 20px 35px}
     <div class="eyebrow">Your voice matters</div>
     <h1>Help shape a better BCA experience.</h1>
     <p>A short, confidential survey about your academic experience, career goals and ideas for improving college life.</p>
-    <div class="math-clock">
+   <div class="aesthetic-clock">
 
-  <div class="eq eq-top">24<br><span style="font-size:22px">—</span><br>2</div>
+  <div class="clock-number clock-12">12</div>
+  <div class="clock-number clock-3">3</div>
+  <div class="clock-number clock-6">6</div>
+  <div class="clock-number clock-9">9</div>
 
-  <div class="eq eq-tl">111 | 1221</div>
+  <div class="clock-hand clock-hour" id="clockHour"></div>
+  <div class="clock-hand clock-minute" id="clockMinute"></div>
+  <div class="clock-hand clock-second" id="clockSecond"></div>
 
-  <div class="eq eq-tr">
-    13585<br>
-    −13582
-  </div>
+  <div class="clock-center"></div>
 
-  <div class="eq eq-l">−8 = 2 − X</div>
-
-  <div class="eq eq-r">4 × 50%</div>
-
-  <div class="eq eq-bl">
-    √64<br><br>
-    52 − x² + x = 10
-  </div>
-
-  <div class="eq eq-br">
-    66 | 198<br><br>
-    25/1 = 100/x
-  </div>
-
-  <div class="eq eq-bottom">
-    2/16 × 96/2
-  </div>
-
-  <div class="clock-machine">
-    <div class="clock-hand clock-hour" id="mathHour"></div>
-    <div class="clock-hand clock-minute" id="mathMinute"></div>
-    <div class="clock-hand clock-second" id="mathSecond"></div>
-    <div class="clock-dot"></div>
-  </div>
+</div>
 
 </div>
   </div>
@@ -333,47 +333,37 @@ footer{text-align:center;color:#7a8496;font-size:12px;padding:0 20px 35px}
   updateMathClock();
   setInterval(updateMathClock, 1000);
 
-</script>
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz8N8h81Jx5febX-Fe4XFMmgwimP_JosDVRrPNEnCxbUPyV-XTV4XEhni3jvFKX37-SgQ/exec";
-const form = document.getElementById("surveyForm");
-const btn = document.getElementById("submitBtn");
-const success = document.getElementById("success");
+<script>
+function updateAestheticClock() {
+  const now = new Date();
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+  const seconds = now.getSeconds();
+  const minutes = now.getMinutes();
+  const hours = now.getHours();
 
-  const packageChoices = [...form.querySelectorAll('input[name="package"]:checked')].map(x => x.value);
-  if (packageChoices.length === 0) {
-    alert("Please select at least one option in Question 6.");
-    return;
-  }
+  // Calculate hand angles
+  const secondAngle = seconds * 6;
+  const minuteAngle = minutes * 6 + seconds * 0.1;
+  const hourAngle = (hours % 12) * 30 + minutes * 0.5;
 
-  const fd = new FormData(form);
-  const data = {};
-  for (const [key, value] of fd.entries()) {
-    data[key] = data[key] ? data[key] + ", " + value : value;
-  }
-  data.package = packageChoices.join(", ");
+  // Move second hand
+  document.getElementById("clockSecond").style.transform =
+    `translateX(-50%) rotate(${secondAngle}deg)`;
 
-  btn.disabled = true;
-  btn.textContent = "Submitting…";
+  // Move minute hand
+  document.getElementById("clockMinute").style.transform =
+    `translateX(-50%) rotate(${minuteAngle}deg)`;
 
-  try {
-    await fetch(SCRIPT_URL, {
-      method: "POST",
-      mode: "no-cors",
-      body: JSON.stringify(data)
-    });
-    form.reset();
-    success.style.display = "block";
-    success.scrollIntoView({behavior:"smooth", block:"center"});
-  } catch (err) {
-    alert("We could not submit your response. Please check your internet connection and try again.");
-  } finally {
-    btn.disabled = false;
-    btn.textContent = "Submit Survey";
-  }
-});
+  // Move hour hand
+  document.getElementById("clockHour").style.transform =
+    `translateX(-50%) rotate(${hourAngle}deg)`;
+}
+
+// Start clock immediately
+updateAestheticClock();
+
+// Update every second
+setInterval(updateAestheticClock, 1000);
 </script>
 </body>
 </html>
