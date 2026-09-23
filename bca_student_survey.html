@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCA Student Voice | Student Survey</title>
+<meta name="description" content="BCA Student Voice — a professional student survey about academics, career goals and campus improvement.">
+<style>
+:root{--ink:#172033;--muted:#667085;--line:#e5eaf2;--bg:#f5f7fb;--primary:#2457e6;--primary2:#6d4aff;--card:#fff;--success:#067647}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+.hero{position:relative;overflow:hidden;background:#101a35;color:white;padding:34px 20px 118px}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;filter:blur(2px);opacity:.5}
+.hero:before{width:420px;height:420px;background:#315eea;right:-140px;top:-230px}
+.hero:after{width:340px;height:340px;background:#7448e8;left:-150px;bottom:-240px}
+.nav{max-width:1080px;margin:auto;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px;letter-spacing:-.3px}
+.logo{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#fff,#b9c9ff);color:#2149cc;display:grid;place-items:center;font-weight:900}
+.badge{border:1px solid #ffffff33;background:#ffffff12;border-radius:999px;padding:7px 13px;font-size:12px;color:#dfe7ff}
+.hero-content{max-width:900px;margin:72px auto 0;text-align:center;position:relative;z-index:1}
+.eyebrow{font-size:13px;font-weight:750;letter-spacing:1.4px;text-transform:uppercase;color:#bfcaff}
+h1{font-size:clamp(34px,6vw,58px);line-height:1.08;letter-spacing:-2px;margin:12px 0 16px}
+.hero p{max-width:650px;margin:auto;color:#d7def5;font-size:17px}
+.wrap{max-width:900px;margin:-68px auto 60px;padding:0 16px;position:relative;z-index:2}
+.card{background:var(--card);border:1px solid #e8ecf3;border-radius:24px;box-shadow:0 24px 70px #17203318;overflow:hidden}
+.card-head{padding:30px 34px;border-bottom:1px solid var(--line);display:flex;gap:15px;align-items:flex-start}
+.form-icon{width:46px;height:46px;border-radius:13px;background:#eef3ff;color:#2457e6;display:grid;place-items:center;font-size:21px}
+.card-head h2{margin:0;font-size:23px;letter-spacing:-.5px}
+.card-head p{margin:4px 0 0;color:var(--muted);font-size:14px}
+form{padding:28px 34px 34px}
+.section{margin:0 0 25px}
+.section-label{font-size:12px;text-transform:uppercase;letter-spacing:1.2px;font-weight:800;color:#7b8497;margin:0 0 12px}
+.q{padding:19px 0;border-bottom:1px solid #edf0f5}
+.q:last-child{border-bottom:0}
+.qtitle{font-weight:700;font-size:15px;margin-bottom:12px;display:block}
+.req{color:#d92d20}
+input[type=text],input[type=number],select,textarea{width:100%;border:1px solid #d5dbe6;border-radius:11px;padding:12px 13px;font:inherit;color:var(--ink);background:white;outline:none;transition:.2s}
+input:focus,select:focus,textarea:focus{border-color:#6b8df5;box-shadow:0 0 0 4px #2457e612}
+textarea{min-height:105px;resize:vertical}
+.options{display:flex;flex-wrap:wrap;gap:9px}
+.option{border:1px solid #dfe4ec;border-radius:10px;padding:10px 13px;display:flex;align-items:center;gap:8px;cursor:pointer;color:#344054;background:#fff;transition:.15s}
+.option:hover{border-color:#9db2ee;background:#f8faff}
+.option input{accent-color:var(--primary)}
+.submit{margin-top:12px;width:100%;border:0;border-radius:12px;padding:15px 18px;color:#fff;font:700 16px inherit;background:linear-gradient(100deg,var(--primary),var(--primary2));box-shadow:0 10px 22px #345ee833;cursor:pointer}
+.submit:disabled{opacity:.65;cursor:not-allowed}
+.privacy{text-align:center;color:#8a94a6;font-size:12px;margin:14px 0 0}
+.success{display:none;margin-top:17px;padding:14px 16px;border-radius:11px;background:#ecfdf3;color:var(--success);font-weight:650;text-align:center}
+footer{text-align:center;color:#7a8496;font-size:12px;padding:0 20px 35px}
+@media(max-width:650px){
+.hero{padding-bottom:105px}.badge{display:none}.hero-content{margin-top:54px}h1{letter-spacing:-1.2px}
+.card-head{padding:24px 20px}form{padding:20px}.wrap{margin-top:-55px}
+.option{width:100%}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <nav class="nav">
+    <div class="brand"><div class="logo">BV</div>BCA Student Voice</div>
+    <div class="badge">Student Feedback • 2026</div>
+  </nav>
+  <div class="hero-content">
+    <div class="eyebrow">Your voice matters</div>
+    <h1>Help shape a better BCA experience.</h1>
+    <p>A short, confidential survey about your academic experience, career goals and ideas for improving college life.</p>
+  </div>
+</header>
+
+<main class="wrap">
+<section class="card">
+  <div class="card-head">
+    <div class="form-icon">✓</div>
+    <div>
+      <h2>Student Survey</h2>
+      <p>Please answer honestly. It takes approximately 2–3 minutes.</p>
+    </div>
+  </div>
+
+  <form id="surveyForm">
+    <div class="section">
+      <div class="section-label">About you</div>
+
+      <div class="q">
+        <label class="qtitle">1. Full Name <span class="req">*</span></label>
+        <input name="name" type="text" required placeholder="Enter your full name">
+      </div>
+
+      <div class="q">
+        <label class="qtitle">2. Age <span class="req">*</span></label>
+        <input name="age" type="number" min="15" max="60" required placeholder="Enter your age">
+      </div>
+
+      <div class="q">
+        <label class="qtitle">3. Where do you currently live? <span class="req">*</span></label>
+        <div class="options">
+          <label class="option"><input type="radio" name="stay" value="Hostel" required> Hostel</label>
+          <label class="option"><input type="radio" name="stay" value="Home"> Home</label>
+          <label class="option"><input type="radio" name="stay" value="Other"> Other</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">BCA & career</div>
+
+      <div class="q">
+        <label class="qtitle">4. Which BCA duration would you prefer? <span class="req">*</span></label>
+        <div class="options">
+          <label class="option"><input type="radio" name="bca_duration" value="3 Years" required> 3 Years</label>
+          <label class="option"><input type="radio" name="bca_duration" value="4 Years"> 4 Years</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <label class="qtitle">5. What is your primary goal after BCA? <span class="req">*</span></label>
+        <select name="target" required>
+          <option value="">Select your goal</option>
+          <option>Software / IT Job</option>
+          <option>Data Science / Analytics</option>
+          <option>AI / ML Engineering</option>
+          <option>Higher Studies</option>
+          <option>Government Job</option>
+          <option>Business / Startup</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="q">
+        <label class="qtitle">6. What would you do to build skills for a strong package? <span class="req">*</span></label>
+        <div class="options">
+          <label class="option"><input type="checkbox" name="package" value="Coding / DSA"> Coding / DSA</label>
+          <label class="option"><input type="checkbox" name="package" value="Projects"> Projects</label>
+          <label class="option"><input type="checkbox" name="package" value="Internships"> Internships</label>
+          <label class="option"><input type="checkbox" name="package" value="Certifications"> Certifications</label>
+          <label class="option"><input type="checkbox" name="package" value="Communication / Aptitude"> Communication / Aptitude</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">College experience</div>
+
+      <div class="q">
+        <label class="qtitle">7. How should the academic workload be managed? <span class="req">*</span></label>
+        <div class="options">
+          <label class="option"><input type="radio" name="academic_load" value="Balanced" required> Balanced</label>
+          <label class="option"><input type="radio" name="academic_load" value="Lower"> Lower</label>
+          <label class="option"><input type="radio" name="academic_load" value="Higher"> Higher</label>
+          <label class="option"><input type="radio" name="academic_load" value="Current is fine"> Current is fine</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <label class="qtitle">8. What positive rule or change would you suggest for the college?</label>
+        <textarea name="rule_suggestion" placeholder="Share a practical suggestion about academics, attendance, labs, exams, library, placements, hostel, etc."></textarea>
+      </div>
+
+      <div class="q">
+        <label class="qtitle">9. Any other suggestion for improving student experience?</label>
+        <textarea name="other_suggestion" placeholder="Your ideas or feedback..."></textarea>
+      </div>
+    </div>
+
+    <button class="submit" id="submitBtn" type="submit">Submit Survey</button>
+    <div class="success" id="success">✓ Thank you. Your response has been submitted successfully.</div>
+    <div class="privacy">Your response will be recorded for survey analysis. Please do not submit sensitive personal information.</div>
+  </form>
+</section>
+</main>
+
+<footer>BCA Student Voice • Student Feedback Survey</footer>
+
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz8N8h81Jx5febX-Fe4XFMmgwimP_JosDVRrPNEnCxbUPyV-XTV4XEhni3jvFKX37-SgQ/exec";
+const form = document.getElementById("surveyForm");
+const btn = document.getElementById("submitBtn");
+const success = document.getElementById("success");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const packageChoices = [...form.querySelectorAll('input[name="package"]:checked')].map(x => x.value);
+  if (packageChoices.length === 0) {
+    alert("Please select at least one option in Question 6.");
+    return;
+  }
+
+  const fd = new FormData(form);
+  const data = {};
+  for (const [key, value] of fd.entries()) {
+    data[key] = data[key] ? data[key] + ", " + value : value;
+  }
+  data.package = packageChoices.join(", ");
+
+  btn.disabled = true;
+  btn.textContent = "Submitting…";
+
+  try {
+    await fetch(SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      body: JSON.stringify(data)
+    });
+    form.reset();
+    success.style.display = "block";
+    success.scrollIntoView({behavior:"smooth", block:"center"});
+  } catch (err) {
+    alert("We could not submit your response. Please check your internet connection and try again.");
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "Submit Survey";
+  }
+});
+</script>
+</body>
+</html>
