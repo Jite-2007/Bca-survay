@@ -301,39 +301,6 @@ footer{text-align:center;color:#7a8496;font-size:12px;padding:0 20px 35px}
 <footer>BCA Student Voice • Student Feedback Survey</footer>
 
 <script>
-  <script>
-
-  // tumhara existing JavaScript code
-  // isko delete nahi karna
-
-
-  // ⬇️ YE CODE EXISTING CODE KE BAAD PASTE KARO
-
-  function updateMathClock() {
-    const now = new Date();
-
-    const seconds = now.getSeconds();
-    const minutes = now.getMinutes();
-    const hours = now.getHours();
-
-    const secondAngle = seconds * 6;
-    const minuteAngle = minutes * 6 + seconds * 0.1;
-    const hourAngle = (hours % 12) * 30 + minutes * 0.5;
-
-    document.getElementById("mathSecond").style.transform =
-      `translateX(-50%) rotate(${secondAngle}deg)`;
-
-    document.getElementById("mathMinute").style.transform =
-      `translateX(-50%) rotate(${minuteAngle}deg)`;
-
-    document.getElementById("mathHour").style.transform =
-      `translateX(-50%) rotate(${hourAngle}deg)`;
-  }
-
-  updateMathClock();
-  setInterval(updateMathClock, 1000);
-
-<script>
 function updateAestheticClock() {
   const now = new Date();
 
